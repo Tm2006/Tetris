@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8txtgs8u7a2t"]
+
+[ext_resource type="Script" uid="uid://dnfk77t4gmhu5" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://3geddnoy2w4l" path="res://assets/asset/png/Buttons/Rect-Medium/PlayIcon/Default.png" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://duhexqf3icx0a" path="res://assets/asset/png/Buttons/Rect-Medium/PlayIcon/Hover.png" id="3_8ln24"]
+[ext_resource type="Texture2D" uid="uid://cwdr6xu4ek3as" path="res://assets/asset/png/Buttons/Square-Medium/Home/Default.png" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://rdrwx2d7837f" path="res://assets/asset/png/Buttons/Square-Medium/Home/Hover.png" id="5_8ln24"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.266667, 0.419608, 1)
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MenuContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "TETR"
+horizontal_alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="MenuContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_wu84c")
+texture_pressed = ExtResource("3_8ln24")
+texture_hover = ExtResource("3_8ln24")
+
+[node name="ExitButton" type="TextureButton" parent="MenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("3_bqqt6")
+texture_pressed = ExtResource("5_8ln24")
+texture_hover = ExtResource("5_8ln24")
+
+[connection signal="pressed" from="MenuContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuContainer/ExitButton" to="." method="_on_exit_button_pressed"]
